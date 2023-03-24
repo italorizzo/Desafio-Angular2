@@ -1,0 +1,61 @@
+<h1>Desafio em Angular</h1>
+<h2>ngIf</h2>
+<p *ngIf="texto">Sumir com esse texto, após clicar no botão</p>
+<button (click)="sumirTexto()">Sumir</button>
+
+
+<hr>
+<h2>ngFor</h2>
+<span>Adicionar itens a lista: </span>
+<input type="text" #valorTxt [(ngModel)]="valorTxt.value">
+<button (click)="adicionar(valorTxt.value)">Enviar</button>
+<ul>
+  <li *ngFor="let item of lista"
+  >{{ item }}</li>
+</ul>
+<button (click)="pop()">Tirar ultimo valor da lista</button>
+
+<hr>
+<h2>ngSwich</h2>
+
+<p>Variável selecionada: {{ textoSwich }}</p>
+<div [ngSwitch]="textoSwich">
+  <p *ngSwitchCase="'t1'">texto 1</p>
+  <p *ngSwitchCase="'t2'">texto 2</p>
+  <p *ngSwitchCase="'t3'">texto 3</p>
+</div>
+
+<hr>
+<h2>ngStyle e ngClass</h2>
+<h3>ng Class</h3>
+<span>Mude a cor de cada texto aqui: </span>
+<select #valor (change)="0">
+  <option value="t1">texto 1</option>
+  <option value="t2">texto 2</option>
+  <option value="t3">texto 3</option>
+</select>
+
+<div class="caixas" [class.texto1]="valor.value == 't1'">
+  <p>Texto colorido se for "texto 1"</p>
+</div>
+
+<div class="caixas" [class.texto2]="valor.value == 't2'">
+  <p>Texto colorido se for "texto 2"</p>
+</div>
+
+<div class="caixas" [class.texto3]="valor.value == 't3'">
+  <p>Texto colorido se for "texto 3"</p>
+</div>
+
+<h3>ngStyle</h3>
+<button  class="ngStyle" (click)="alterar()"
+  [style.backgroundColor]="ativo ? 'blue': 'gray'"
+  [style.color]="ativo ? 'white': 'black'"
+  [style.fontWeighr]="ativo ? 'bold': 'nromal'"
+>Mudar cor do atributo: {{ ativo }}</button>
+
+<hr>
+<h2>Criando diretivas</h2>
+<span>Digite a cor do texto (em inglês): </span>
+<input #valorDiretiva [(ngModel)]="valorDiretiva.value">
+<p [appCustomizado]="valorDiretiva.value">Texto colorido usando diretiva</p>

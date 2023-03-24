@@ -1,0 +1,10 @@
+<h1>Home</h1>
+
+<section>
+  <button routerLink="botao1">1º Button</button>
+  <button [routerLink]="['botao2', texto]" *ngIf="texto">2º Button</button>
+  <button [routerLink]="['botao3', texto]" *ngIf="texto">3º Button</button>
+</section>
+
+<br><br>
+<span>Crie um parâmetro para a rota: </span><input [(ngModel)]="texto" type="number">
