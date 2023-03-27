@@ -7,9 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./botao1-lazy.component.scss']
 })
 export class Botao1LazyComponent {
-  constructor(private router: Router){
-
-  }
+  constructor(private router: Router){ }
   returnHome(){
     this.router.navigate(["/"])
   }
