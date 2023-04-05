@@ -3,18 +3,20 @@ import { ApiService } from './../api.service';
 import { Component, ViewChild } from '@angular/core';
 import { SaibaMaisComponent } from './saiba-mais/saiba-mais.component';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  @ViewChild(SaibaMaisComponent, {static: false})
+  saibaMais: SaibaMaisComponent
+
   keyCat: string = 'live_bJH9d7aN41e5s8JRGLI6uumu6KA7cowPMWeGvClyy0KxCy1GsLy066G7xzrQD2xG'
   limit: number = 48
   urlCat: string
 
-  selecionado: boolean = false
+  detalhe: boolean = false
 
   temp: Usable[]
   continuar: boolean = false
@@ -28,6 +30,7 @@ export class HomeComponent {
     this.apiService.carregar(this.urlCat)
     this.imagesCat()
   }
+  cont: number = 0
   imagesCat(){
     this.apiService.imagesCat().subscribe({
       next: (res)=>{
@@ -40,7 +43,8 @@ export class HomeComponent {
       }
     })
   }
-  informacoes(): void{
-    this.selecionado = true
+  informacoes(elemento): void{
+    this.detalhe = true
+    this.saibaMais.dado(elemento)
   }
 }

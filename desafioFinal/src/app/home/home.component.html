@@ -2,8 +2,8 @@
   <mat-spinner></mat-spinner>
   <p>Espere um momento, as imagens estão sendo carregadas</p>
 </div>
-<section class="area" *ngIf="continuar && !selecionado">
-  <button *ngFor="let element of temp" class="card" (click)="informacoes()" [routerLink]="['saiba_mais', element[0].id]" routerLinkActive="router-link-active">
+<section class="area" *ngIf="continuar && !detalhe">
+  <button *ngFor="let element of temp" class="card" (click)="informacoes(element)" routerLinkActive="router-link-active">
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{ element.nome }}</mat-card-title>
@@ -22,4 +22,4 @@
     </mat-card>
   </button>
 </section>
-<app-saiba-mais *ngIf="selecionado"></app-saiba-mais>
+<app-saiba-mais *ngIf="continuar"></app-saiba-mais>
