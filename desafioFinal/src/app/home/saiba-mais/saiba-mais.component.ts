@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Usable } from 'src/app/interface/usable';
 
 @Component({
   selector: 'app-saiba-mais',
@@ -6,7 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./saiba-mais.component.css']
 })
 export class SaibaMaisComponent {
+  dados: Usable
   dado(elemento){
-    console.log(elemento)
+    this.dados = elemento
+    console.log(this.dados)
   }
 }

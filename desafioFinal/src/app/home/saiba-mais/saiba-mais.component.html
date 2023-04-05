@@ -1,1 +1,16 @@
-<p>Abriu!</p>
+<main *ngIf="dados">
+    <section>
+        <img src="{{dados.url}}" alt="">
+    </section>
+    <section>
+        <h1>{{dados.nome}}</h1>
+        <div>
+            <h2>Origem:</h2>
+            <p>{{dados.origem}}</p>
+        </div>
+        <div>
+            <h2>Descricão:</h2>
+            <p>{{dados.temperamento}}</p>
+        </div>
+    </section>
+</main>
