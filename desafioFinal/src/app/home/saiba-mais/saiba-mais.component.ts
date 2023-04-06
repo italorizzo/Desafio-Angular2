@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { SaibamaisService } from '../../service/saibamais.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Usable } from 'src/app/interface/usable';
 
 @Component({
@@ -7,9 +8,5 @@ import { Usable } from 'src/app/interface/usable';
   styleUrls: ['./saiba-mais.component.css']
 })
 export class SaibaMaisComponent {
-  dados: Usable
-  dado(elemento){
-    this.dados = elemento
-    console.log(this.dados)
-  }
+ 
 }
