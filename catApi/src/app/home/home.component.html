@@ -1,0 +1,25 @@
+<div *ngIf="!load" class="carregar">
+    <mat-spinner></mat-spinner>
+    <p>Espere um momento, as imagens estão sendo carregadas</p>
+</div>
+  <section class="area" *ngIf="load">
+    <div *ngFor="let element of showCats" class="card" routerLinkActive="router-link-active">
+        <mat-card>
+        <div class="clicked" routerLink="detal/{{ element.id }}">
+            <mat-card-header>
+                <mat-card-title>{{ element.breeds[0].name }}</mat-card-title>
+                <mat-card-subtitle>{{ element.breeds[0].origin }}</mat-card-subtitle>
+            </mat-card-header>
+        <img class="img-cat" mat-card-image src="{{ element.url }}" alt="Photo of a {{ element.breeds[0].name}}">
+        <mat-card-content>
+            <p>
+            {{element.breeds[0].description}}
+            </p>
+        </mat-card-content>
+    </div>
+        <mat-card-actions>
+            <button mat-button>FAVORITO</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+</section>
