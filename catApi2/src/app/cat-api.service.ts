@@ -15,11 +15,19 @@ export class CatApiService {
   options = {headers: new HttpHeaders({
     'x-api-key':'live_bJH9d7aN41e5s8JRGLI6uumu6KA7cowPMWeGvClyy0KxCy1GsLy066G7xzrQD2xG'
   })}
-
   getValues(): Observable<PutCats>{
-    return this.http.get<PutCats>(`${this.urlStandard}images/search?has_breeds=1&limit=${this.limit}`, this.options)
+    return this.http.get<PutCats>(`${this.urlStandard}images/search?has_breeds=1&limit=${this.limit}&order=RANDOM`, this.options)
   }
   getDetail(id): Observable<PutCats>{
-      return this.http.get<PutCats>(`${this.urlStandard}images/${id}`)
+    return this.http.get<PutCats>(`${this.urlStandard}images/${id}`)
+  }
+  getFavorites(): Observable<any>{
+    return this.http.get<any>(`${this.urlStandard}favourites?sub_id=eu`, this.options)
+  }
+  deleteCat(id): Observable<any> {
+    return this.http.delete<any>(`${this.urlStandard}favourites/${id}`, this.options)
+  }
+  addFavorite(imgId){
+    return this.http.post<any>(`${this.urlStandard}favourites`, {"image_id": imgId, "sub_id": 'eu'}, this.options)
   }
 }
