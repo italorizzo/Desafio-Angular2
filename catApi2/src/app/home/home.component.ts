@@ -1,5 +1,5 @@
+import { CatApiService } from './../cat-api.service';
 import { Component } from '@angular/core';
-import { CatApiService } from '../cat-api.service';
 import { PutCats } from '../interface/put-cats';
 
 @Component({
@@ -10,18 +10,36 @@ import { PutCats } from '../interface/put-cats';
 export class HomeComponent {
   showCats: PutCats
   load: boolean = false
+  erro: any
+  cont: number = 0
 
-  constructor(private cat: CatApiService) { }
+  constructor(private catApiService: CatApiService) { }
 
   ngOnInit(): void {
-    this.cat.getValues().subscribe({
+    this.catApiService.getValues().subscribe({
       next: (res) => {
         this.showCats = res
+        this.showCats[this.cont]['imgIcon'] = false
+        this.cont++
       },
       complete: () => {
         this.load = true
       }
     })
   }
-
+  addFavorite(id){
+    this.catApiService.addFavorite(id).subscribe({
+      next: (res) => {
+        this.erro = false
+        for(let c  = 0; c < this.showCats.length; c++){
+          if(this.showCats[c]['id']==id){
+            this.showCats[c]['imgIcon'] = true
+          }
+        }
+      },
+      error: (err) => {
+        this.erro = true
+      } 
+    })
+  }
 }

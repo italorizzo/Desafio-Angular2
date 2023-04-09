@@ -5,18 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { FavComponent } from './fav/fav.component';
 import { DetailComponent } from './detail/detail.component';
 import { FavLazyComponent } from './fav/fav-lazy/fav-lazy.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FavComponent,
     DetailComponent,
     FavLazyComponent
   ],
@@ -24,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatIconModule,
     HttpClientModule,
     MatCardModule,
     MatProgressSpinnerModule

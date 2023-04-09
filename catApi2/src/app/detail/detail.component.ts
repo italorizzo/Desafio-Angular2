@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CatApiService } from '../cat-api.service';
-import { PutCats } from '../interface/put-cats';
 
 @Component({
   selector: 'app-detail',
@@ -9,14 +8,30 @@ import { PutCats } from '../interface/put-cats';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent {
-  values: PutCats
+  values: any
+  erro: boolean = false
 
-  constructor(private route: ActivatedRoute, private catApi: CatApiService){
-    this.catApi.getDetail(route.snapshot.params['id']).subscribe({
+  constructor(private route: ActivatedRoute,private catApiService: CatApiService, private router: Router){
+    this.catApiService.getDetail(route.snapshot.params['id']).subscribe({
       next: (res) => {
         this.values = res
+        this.values['imgIcon'] = false
         console.log(this.values)
       }
     })
+  }
+  addFavorite(id){
+    this.catApiService.addFavorite(id).subscribe({
+      next: (res) => {
+        this.erro = false
+        this.values['imgIcon'] = true
+      },
+      error: (err) => {
+        this.erro = true
+      } 
+    })
+  }
+  navigate(){
+    this.router.navigate(["fav"])
   }
 }
