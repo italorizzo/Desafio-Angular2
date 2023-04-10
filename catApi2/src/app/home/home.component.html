@@ -2,7 +2,10 @@
   <mat-spinner></mat-spinner>
   <p>Espere um momento, as imagens estão sendo carregadas!</p>
 </div>
-<section class="area" *ngIf="load" style="margin-top: 50px;">
+<section 
+infiniteScroll
+(scrolled)="onScroll()"
+class="area" *ngIf="load" style="margin-top: 50px;">
   <div *ngFor="let element of showCats" class="card" routerLinkActive="router-link-active">
       <mat-card>
       <div class="clicked" routerLink="detail/{{ element.id }}">

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PutCats } from './interface/put-cats';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Favorite } from './interface/favorite';
+import { AddFavorite } from './interface/add-favorite';
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +23,13 @@ export class CatApiService {
   getDetail(id: string): Observable<PutCats>{
     return this.http.get<PutCats>(`${this.urlStandard}images/${id}`)
   }
-  getFavorites(): Observable<any>{
-    return this.http.get<any>(`${this.urlStandard}favourites?sub_id=eu`, this.options)
+  getFavorites(): Observable<Favorite[]>{
+    return this.http.get<Favorite[]>(`${this.urlStandard}favourites?sub_id=eu`, this.options)
   }
-  deleteCat(id): Observable<any> {
-    return this.http.delete<any>(`${this.urlStandard}favourites/${id}`, this.options)
+  deleteCat(id): Observable<Favorite[]> {
+    return this.http.delete<Favorite[]>(`${this.urlStandard}favourites/${id}`, this.options)
   }
   addFavorite(imgId){
-    return this.http.post<any>(`${this.urlStandard}favourites`, {"image_id": imgId, "sub_id": 'eu'}, this.options)
+    return this.http.post<AddFavorite>(`${this.urlStandard}favourites`, {"image_id": imgId, "sub_id": 'eu'}, this.options)
   }
 }

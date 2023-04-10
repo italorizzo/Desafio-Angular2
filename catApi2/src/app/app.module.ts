@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    InfiniteScrollModule,
     MatIconModule,
     HttpClientModule,
     MatCardModule,

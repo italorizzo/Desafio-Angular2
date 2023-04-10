@@ -1,6 +1,6 @@
 
 import { CatApiService } from './../cat-api.service';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { PutCats } from '../interface/put-cats';
 
 @Component({
@@ -9,6 +9,15 @@ import { PutCats } from '../interface/put-cats';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event) {
+    console.log(event)
+    if(event.scrollY >= 10){
+      console.log('oi')
+    }
+  }
+
+
   showCats: PutCats
   load: boolean = false
   erro: any

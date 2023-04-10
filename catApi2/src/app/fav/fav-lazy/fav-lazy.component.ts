@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { CatApiService } from './../../cat-api.service';
 import { Component } from '@angular/core';
+import { Favorite } from 'src/app/interface/favorite';
 
 @Component({
   selector: 'app-fav-lazy',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./fav-lazy.component.css']
 })
 export class FavLazyComponent {
-  fav: any[]
+  fav: Favorite[]
 
   removeCat(id){
     this.catApiService.deleteCat(id).subscribe({
@@ -17,7 +18,9 @@ export class FavLazyComponent {
       }
     })
   }
-
+  voltarHome(){
+    this.router.navigate(["/"])
+  }
   detalhe(val){
     this.router.navigate(["/detail/"+val])
   }
@@ -29,3 +32,4 @@ export class FavLazyComponent {
     })
   }
 }
+

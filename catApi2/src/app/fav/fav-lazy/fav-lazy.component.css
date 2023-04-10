@@ -3,14 +3,14 @@ main{
     width: 100%;
     text-align: center;
 }
-div{
+.fav{
     width: 350px;
     height: 300px; 
     display: inline-block;
     margin: 5px;
     border-radius: 10px;
 }
-button{
+.fechar{
     position: absolute;
     margin-top: 5px;
     margin-left: 5px;
@@ -30,4 +30,24 @@ img{
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+}
+.catNone{
+    position: absolute;
+    width: 700px;
+    height: 200px;
+    left: calc(50% - 350px);
+    top: calc(50% - 100px);
+}
+.catNone h1{
+    font-size: 200%;
+    margin-bottom: 30px;
+}
+.verFav{
+    position: relative;
+    background-color: rgb(38, 25, 159);
+    border-radius: 10em;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    cursor: pointer;
+    border: 0;
 }

@@ -1,6 +1,10 @@
 <main>
-    <div *ngFor="let elemento of fav">
-        <button (click)="removeCat(elemento.id)">X</button>
+    <div *ngIf="fav.length == 0" class="catNone">
+        <h1>Sem gatos nos favoritos, adicione agora!</h1>
+        <button (click)="voltarHome()" class="verFav">Ir para tela inicial</button>
+    </div>
+    <div class="fav" *ngFor="let elemento of fav">
+        <button class="fechar" (click)="removeCat(elemento.id)">X</button>
         <img (click)="detalhe(elemento.image.id)" src="{{ elemento.image.url }}" alt="">
     </div>
 </main>
