@@ -2,7 +2,7 @@
   <mat-spinner></mat-spinner>
   <p>Espere um momento, as imagens estão sendo carregadas!</p>
 </div>
-<section class="area" *ngIf="load" style="margin-top: 50px;">
+<section (mouseenter)="seach(false)" class="area" *ngIf="load" style="margin-top: 50px;">
   <div *ngFor="let element of showCats" class="card" routerLinkActive="router-link-active">
       <mat-card>
       <div class="clicked" routerLink="detail/{{ element.id }}">
@@ -26,6 +26,10 @@
   </mat-card>
 </div>
 </section>
+<div class="seach" (mouseenter)="seach(true)">
+  <img src="../assets/search-svgrepo-com.svg" alt="">
+  <input #valor (keyup.enter)="filtrar(valor.value)" *ngIf="seachInput" type="text" placeholder="procure uma raça">
+</div>
 <section class="erro" *ngIf="erro">
     <button class="fecharBtn" (click)="erro = false">X</button>
     <h1>Ja adicionando nos favoritos</h1>

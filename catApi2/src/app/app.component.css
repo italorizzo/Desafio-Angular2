@@ -33,16 +33,3 @@ nav > div{
   border-bottom: 2px solid rgb(36, 36, 180);
   font-weight: bold;
 }
-.login{
-  position: absolute;
-  text-align: right;
-  right: 8%;
-  top: 25px;
-  width: 300px;
-}
-.login button{
-  margin-left: 20px;
-}
-.login input{
-  width: 200px;
-}

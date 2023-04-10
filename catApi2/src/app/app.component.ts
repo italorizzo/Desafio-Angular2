@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'catApi2';
-  login: boolean = false
-
-  showLogin(){
-    this.login = !this.login;
-  }
 }

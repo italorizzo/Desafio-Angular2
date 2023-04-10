@@ -95,3 +95,40 @@ font-weight: bold;
   width: 30px;
   cursor: pointer;
 }
+.seach{
+  position: absolute;
+  right: 10%;
+  top: 25px;
+  height: 50px;
+  vertical-align: middle;
+}
+.seach > *{
+  float: right;
+}
+.seach img{
+  width: 20px;
+}
+.seach input{
+  border: 0;
+  position: relative;
+  margin-right: 20px;
+  right: 0;
+  border-bottom: 2px solid rgb(36, 36, 180);
+  animation: pesquisa 1s;
+  transform: all 1s;
+}
+.animationPesq{
+  animation: reversePesquisa 1s !important;
+}
+@keyframes pesquisa {
+  0%{
+    position: absolute;
+    right: -100px;
+    opacity: 0;
+  }
+  100%{
+    position: relative;
+    right: 0;
+    opacity: 1;
+  }
+}
