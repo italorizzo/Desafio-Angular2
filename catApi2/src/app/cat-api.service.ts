@@ -18,7 +18,7 @@ export class CatApiService {
   getValues(): Observable<PutCats>{
     return this.http.get<PutCats>(`${this.urlStandard}images/search?has_breeds=1&limit=${this.limit}&order=RANDOM`, this.options)
   }
-  getDetail(id): Observable<PutCats>{
+  getDetail(id: string): Observable<PutCats>{
     return this.http.get<PutCats>(`${this.urlStandard}images/${id}`)
   }
   getFavorites(): Observable<any>{

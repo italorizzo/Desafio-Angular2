@@ -9,9 +9,11 @@ import { PutCats } from '../interface/put-cats';
 })
 export class HomeComponent {
   showCats: PutCats
+  showCatsCopy: PutCats
   load: boolean = false
   erro: any
   cont: number = 0
+  seachInput: boolean
 
   constructor(private catApiService: CatApiService) { }
 
@@ -41,5 +43,15 @@ export class HomeComponent {
         this.erro = true
       } 
     })
+  }
+  seach(sit){
+    this.seachInput = sit
+  }
+  filtrar(val){
+    for(let i = 0; i < this.showCats.length; i++){
+      if(this.showCats[i]["name"] == val){
+        console.log('certo')
+      }
+    }
   }
 }
