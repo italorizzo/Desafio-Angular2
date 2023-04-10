@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./fav-lazy.component.css']
 })
 export class FavLazyComponent {
-  fav: any
+  fav: any[]
 
   removeCat(id){
     this.catApiService.deleteCat(id).subscribe({
