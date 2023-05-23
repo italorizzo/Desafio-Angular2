@@ -16,7 +16,6 @@ export class DetailComponent {
       next: (res) => {
         this.values = res
         this.values['imgIcon'] = false
-        console.log(this.values)
       }
     })
   }
@@ -28,7 +27,7 @@ export class DetailComponent {
       },
       error: (err) => {
         this.erro = true
-      } 
+      }
     })
   }
   navigate(){

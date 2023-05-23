@@ -13,6 +13,7 @@ export class CatApiService {
 
   urlStandard: string = 'https://api.thecatapi.com/v1/'
   limit: number = 20
+  errors: any[] = ['', ' ', null, undefined]
 
   options = {headers: new HttpHeaders({
     'x-api-key':'live_bJH9d7aN41e5s8JRGLI6uumu6KA7cowPMWeGvClyy0KxCy1GsLy066G7xzrQD2xG'
@@ -30,6 +31,11 @@ export class CatApiService {
     return this.http.delete<Favorite[]>(`${this.urlStandard}favourites/${id}`, this.options)
   }
   addFavorite(imgId){
+    for(let values of this.errors){
+      if(values == imgId){
+        throw Error ('Deu erro')
+      }
+    }
     return this.http.post<AddFavorite>(`${this.urlStandard}favourites`, {"image_id": imgId, "sub_id": 'eu'}, this.options)
   }
 }
